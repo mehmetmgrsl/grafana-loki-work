@@ -14,7 +14,13 @@
 
 - ```helm repo add grafana https://grafana.github.io/helm-charts```
 
-- ```helm install -n monitoring --values loki-values.yaml loki grafana/loki```
+- ```helm show values grafana/loki-stack > loki-stack-values.yaml```
+
+   - By default in the loki-stack-values:
+     - Loki and Promtail are enabled for installation.
+     - Prometheus, Grafana, Logstash, fluent-bit, filebeat are disabled. 
+
+- ```helm install -n monitoring --values loki-stack-values.yaml loki grafana/loki-stack```
 
 ## Accessing the Loki metrics
 
@@ -26,9 +32,19 @@
 
    - ![Loki Metrics](loki-metrics.png)
 
-## Install Promtail (as a Kubernetes DaemonSet) (5*)
+## Adding Loki as a Datasource in the Grafana
 
-- ```kubectl apply -f promtail-ds.yaml```
+   - ```kubectl -n monitoring port-forward deployment/prometheus-grafana 3000```
+
+   - Access the dashboard via http://localhost:3000/
+
+   - Add the Loki connection like below:
+
+
+      - ![Grafana-loki-datasource](grafana-loki-datasource-1.png)
+
+      - ![Grafana-loki-datasource](grafana-loki-datasource-2.png)
+
 
 ### Resources:
 1*. https://grafana.com/docs/loki/latest/?pg=oss-loki&plcmt=quick-links
@@ -40,4 +56,7 @@
 4* [A Beginner's Guide for Grafana Loki (Open-source Log Aggregation by Prometheus)](https://www.atatus.com/blog/a-beginners-guide-for-grafana-loki/#:~:text=Loki%20project%20is%20similar%20to,%2C%20in%20turn%2C%20cuts%20costs.)
 
 5* https://grafana.com/docs/loki/latest/send-data/promtail/installation/
+
+6* [Mastering Grafana Loki: Kubernetes Log Collection & Integration | Part 2](https://www.youtube.com/watch?v=O52dseg2bJo)
+
 
