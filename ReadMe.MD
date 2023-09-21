@@ -40,11 +40,17 @@
 
    - Add the Loki connection like below:
 
-
       - ![Grafana-loki-datasource](grafana-loki-datasource-1.png)
 
       - ![Grafana-loki-datasource](grafana-loki-datasource-2.png)
+      
+## Viewing java.app's logs
 
+- Deploy the java-app using https://github.com/mehmetmgrsl/efk-work
+
+Then see its log on Grafana like below:
+
+- ![Grafana-JavaApp-Logs](grafana-java-app-logs.png)
 
 ### Resources:
 1*. https://grafana.com/docs/loki/latest/?pg=oss-loki&plcmt=quick-links
