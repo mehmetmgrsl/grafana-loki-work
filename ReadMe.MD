@@ -16,6 +16,16 @@
 
 - ```helm install -n monitoring --values loki-values.yaml loki grafana/loki```
 
+## Accessing the Loki metrics
+
+- Change the Loki service to use a NodePort with the command below:
+
+   - ```kubectl patch svc loki -n monitoring -p '{"spec": {"type": "NodePort", "ports": [{"name": "http-metrics", "nodePort": 31444, "port": 3100}]}}'```
+
+   - Access the metrics via ```http://<node-ip>:31444/metrics``` , like below:
+
+   - ![Loki Metrics](loki-metrics.png)
+
 
 ### Resources:
 1*. https://grafana.com/docs/loki/latest/?pg=oss-loki&plcmt=quick-links
