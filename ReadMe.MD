@@ -26,6 +26,9 @@
 
    - ![Loki Metrics](loki-metrics.png)
 
+## Install Promtail (as a Kubernetes DaemonSet) (5*)
+
+- ```kubectl apply -f promtail-ds.yaml```
 
 ### Resources:
 1*. https://grafana.com/docs/loki/latest/?pg=oss-loki&plcmt=quick-links
@@ -35,4 +38,6 @@
 3* [Mastering Grafana Loki: Complete Guide to Installation, Configuration, and Integration | Part 1](https://www.youtube.com/watch?v=0B-yQdSXFJE)
 
 4* [A Beginner's Guide for Grafana Loki (Open-source Log Aggregation by Prometheus)](https://www.atatus.com/blog/a-beginners-guide-for-grafana-loki/#:~:text=Loki%20project%20is%20similar%20to,%2C%20in%20turn%2C%20cuts%20costs.)
+
+5* https://grafana.com/docs/loki/latest/send-data/promtail/installation/
 
