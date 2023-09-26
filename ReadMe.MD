@@ -1,5 +1,3 @@
-# WIP !!!
-
 ## Why Loki?
 
 - Loki project is similar to the ELK/EFK stack, but it's quicker to set up and use. ***Loki only indexes metadata about your logs as a set of labels for each log stream rather than the content of the log***. It reduces the index size, which simplifies processes and, in turn, cuts costs (4*)
