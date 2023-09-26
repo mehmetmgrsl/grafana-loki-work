@@ -35,6 +35,8 @@
    - ```kubectl -n monitoring port-forward deployment/prometheus-grafana 3000```
 
    - Access the dashboard via http://localhost:3000/
+     - uswer admin
+     - psw: ```kubectl get secret -n monitoring loki-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo```
 
    - Add the Loki connection like below:
 
