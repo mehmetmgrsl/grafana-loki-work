@@ -6,9 +6,9 @@
 
 - It is a log aggregation system designed to store and query logs (3*)
 
-## Install kube-prometheus
+## Precondition
 
-- Check https://github.com/mehmetmgrsl/k8s-prometheus-grafana
+- A Kubernetes Cluster
 
 ## Install Loki
 
@@ -16,11 +16,11 @@
 
 - ```helm show values grafana/loki-stack > loki-stack-values.yaml```
 
-   - By default in the loki-stack-values:
-     - Loki and Promtail are enabled for installation.
-     - Prometheus, Grafana, Logstash, fluent-bit, filebeat are disabled. 
+   - In the loki-stack-values:
+     - Loki, Promtail, Prometheus and Grafana are enabled for installation.
+     - Logstash, fluent-bit, filebeat are disabled. 
 
-- ```helm install -n monitoring --values loki-stack-values.yaml loki grafana/loki-stack```
+- ```helm install -n monitoring --values loki-stack-values.yaml loki grafana/loki-stack --create-namespace```
 
 ## Accessing the Loki metrics
 
